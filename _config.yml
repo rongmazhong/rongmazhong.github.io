@@ -1,1 +1,88 @@
 theme: jekyll-theme-minimal
+# Site settings
+title: Rong Blog
+SEOTitle: 荣的博客 | Rong Blog
+header-img: img/home-bg.jpg
+email: rongmazhong@gmail.com
+description: "JAVA 开发者,热爱科技,Software Engineer |@Rong 荣 的个人博客，技术改变世界。"
+keyword: "Rong Blog, 博客, 个人网站, 互联网, JAVA, Web, JavaScript, 后端"
+url: "http://rongmazhong.top"           
+baseurl: ""                       
+
+
+
+# SNS settings
+RSS: false
+weibo_username:     
+zhihu_username:     
+github_username:    rongmazhong
+twitter_username:   
+
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+anchorjs: true      
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Disqus settings
+disqus_username: rong
+
+# Netease setttings
+netease_comment: false
+
+
+
+# Analytics settings
+# Baidu Analytics 
+# ba_track_id: [your track id]
+
+# Google Analytics
+# ga_track_id: ''            # Format: UA-xxxxxx-xx
+# ga_domain: 
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "深夜coding <br>离开世界之前，一切都是过程"
+sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# Friends
+friends: [
+]
