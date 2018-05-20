@@ -9,9 +9,8 @@ header-mask:  0.3
 catalog:      true
 multilingual: true
 tags:
-    - 开发
+    - Web开发
     - JavaScript
-    - PWA
     - JAVA
     - python
     - 大数据
