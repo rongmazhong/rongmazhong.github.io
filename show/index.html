@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>roll点</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .app-roll {
+            background: rgb(73, 73, 73);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(73, 73, 73, 1) 0%, rgba(2, 2, 2, 1) 100%);
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(73, 73, 73, 1) 0%, rgba(2, 2, 2, 1) 100%);
+            background: radial-gradient(ellipse at center, rgba(73, 73, 73, 1) 0%, rgba(2, 2, 2, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#020202', GradientType=1);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .roll-name {
+            font-size: 100px;
+            color: #fff;
+        }
+
+        .roll-list {
+            position: fixed;
+            left: 50%;
+            top: 60px;
+            transform: translateX(-50%);
+            width: 1200px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .roll-item {
+            flex: 1;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            text-align: center;
+            position: relative;
+            margin: 0 10px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .player-img {
+            margin-top: 30px;
+            width: 50px;
+            height: 50px;
+        }
+        .my-img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .roll-item .item-name {}
+
+        .roll-item .item-del {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            border: 1px solid #eee;
+            background-color: #eee;
+            color: #333;
+            width: 20px;
+            height: 20px;
+            line-height: 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .roll-item .item-del:hover {
+            background-color: #ccc;
+        }
+
+        .roll-item:hover {
+            background-color: #444;
+        }
+
+        .roll-item.is-selected {
+            background-color: #eee;
+            color: #333;
+        }
+
+        .roll-btns {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 60px;
+            width: 300px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .roll-btn {
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 40px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, .5);
+            outline: 0;
+            font-size: 14px;
+            margin: 0 10px;
+            background-color: transparent;
+            color: #eee;
+        }
+
+        .roll-btn:hover {
+            background-color: rgba(255, 255, 255, .2);
+        }
+
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-roll" id="app">
+        <div class="roll-box" v-cloak>
+            <div>
+                <span class="roll-name">{{shareer}}</span>
+            </div>
+            <img :src=img class="my-img">
+        </div>
+        <div class="roll-list" v-cloak>
+            <div class="roll-item" @click="select" :name="player.name" v-for="player in players" :class="[player.selected ? 'is-selected' : '']">
+                <span class="item-name">{{ player.name }}</span>
+                <img :src='player.src' class="player-img">
+            </div>
+        </div>
+        <div class="roll-btns">
+            <button class="roll-btn" type="button" @click="play">点名</button>
+            <button class="roll-btn" type="button" @click="stop">停止</button>
+        </div>
+
+    </div>
+    <script src="./vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    shareer: '？', //当前分享者
+                    timer: 0,
+                    img: 'C:\\Users\\Administrator\\Pictures\\test.jpg',
+                    isRolling: false,
+                    players: [
+                        { name: '程亚雄', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '陈姣薇', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' },
+                        { name: '程钎', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '杜勇', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' },
+                        { name: '马中荣', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '聂庆童', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' },
+                        { name: '彭坤', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '索小栋', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' },
+                        { name: '舒昊', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '陶顺利', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' },
+                        { name: '吴彤', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '朱鸿秋', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' },
+                        { name: '张庆', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\1Logo.jpg' },
+                        { name: '曾剑', selected: false, src: 'C:\\Users\\Administrator\\Pictures\\3logo.jpg' }
+                    ],
+                }
+            },
+            methods: {
+                init: function () {
+                    this.players = this.shuffle(this.players);
+                },
+                select: function (event) {
+                    var name = event.currentTarget.getAttribute('name');
+                    var ret = this.players.find(function (player) {
+                        return player.name === name;
+                    })
+                    if (ret) {
+                        ret.selected = !ret.selected;
+                    }
+                },
+                play: function () {
+                    if (this.isRolling) {
+                        return false;
+                    }
+                    var self = this;
+                    var joiners = this.players.filter(function (item) {
+                        return item.selected === true;
+                    });
+                    if (joiners.length === 0) {
+                        return alert('没有选择下周的分享者');
+                    }
+                    clearInterval(this.timer);
+                    this.isRolling = true;
+                    this.timer = setInterval(function () {
+                        var shuffled = self.shuffle(joiners);
+                        var shareer = shuffled[Math.floor(Math.random() * shuffled.length)];
+                        self.shareer = shareer.name;
+                        self.img = shareer.src;
+                    }, 3);
+                },
+                stop: function () {
+                    clearInterval(this.timer);
+                    this.isRolling = false;
+                },
+                shuffle: function (a) {
+                    return a.slice().sort(function () {
+                        return 0.5 - Math.random();
+                    })
+                }
+            },
+            mounted: function () {
+                this.init();
+            }
+        })
+    </script>
+</body>
+
+</html>
