@@ -47,7 +47,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: rong
+disqus_username: rongmazhong
 
 # Netease setttings
 netease_comment: false
@@ -55,12 +55,12 @@ netease_comment: false
 
 
 # Analytics settings
-# Baidu Analytics 
-# ba_track_id: [your track id]
+Baidu Analytics 
+ba_track_id: 7cebe631af2443f3981685663df4248b
 
 # Google Analytics
-# ga_track_id: ''            # Format: UA-xxxxxx-xx
-# ga_domain: 
+ga_track_id: 'UA-132348389-1'            # Format: UA-xxxxxx-xx
+ga_domain: auto
 
 
 
