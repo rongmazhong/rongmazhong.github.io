@@ -47,7 +47,8 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: rongmazhong
+# disqus_username: rongmazhong
+disqus_username: disqus_sxpPjFVX0s
 
 # Netease setttings
 netease_comment: false
