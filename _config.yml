@@ -13,8 +13,8 @@ baseurl: ""
 
 # SNS settings
 RSS: false
-weibo_username:     
-zhihu_username:     
+weibo_username:    rongmazhong
+zhihu_username:     rongmazhong
 github_username:    rongmazhong
 twitter_username:   
 
