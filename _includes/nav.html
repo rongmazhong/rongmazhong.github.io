@@ -13,7 +13,7 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="ronghuxblog_navbar">
+        <div id="rongblog_navbar">
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -39,7 +39,7 @@
     var $toggle = document.querySelector('.navbar-toggle');
     var $navbar = document.querySelector('#rongblog_navbar');
     var $collapse = document.querySelector('.navbar-collapse');
-    var __HuxNav__ = {
+    var __RongNav__ = {
         close: function(){
             $navbar.className = " ";
             // wait until animation end.
@@ -58,9 +58,9 @@
     // Bind Event
     $toggle.addEventListener('click', function(e){
         if ($navbar.className.indexOf('in') > 0) {
-            __HuxNav__.close()
+            __RongNav__.close()
         }else{
-            __HuxNav__.open()
+            __RongNav__.open()
         }
     })
     /**
@@ -77,6 +77,6 @@
     document.addEventListener('click', function(e){
         if(e.target == $toggle) return;
         if(e.target.className == 'icon-bar') return;
-        __HuxNav__.close();
+        __RongNav__.close();
     })
 </script>
