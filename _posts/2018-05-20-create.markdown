@@ -1,10 +1,9 @@
 ---
 layout:       post
 title:        "创建第一篇博客"
-subtitle:     "520 coding"
+subtitle:     "透彻的掌握 Spring 中@transactional 的使用"
 date:         2018-05-20 12:00:00
 author:       "Rong"
-header-img:   "img/in-post/post-eleme-pwa/eleme-at-io.jpg"
 header-mask:  0.3
 catalog:      true
 tags:
@@ -58,7 +57,7 @@ tags:
 
 ##### 图 1. Spring 事务实现机制
 
-![Spring 事务实现机制](../img/in-post/post-incloud/spring事务实现机制.jpg)
+![Spring 事务实现机制](/img/in-post/post-incloud/spring事务实现机制.jpg)
 
 Spring AOP 代理有 CglibAopProxy 和 JdkDynamicAopProxy 两种，图 1 是以 CglibAopProxy 为例，对于 CglibAopProxy，需要调用其内部类的 DynamicAdvisedInterceptor 的 intercept 方法。对于 JdkDynamicAopProxy，需要调用其 invoke 方法。
 
@@ -68,7 +67,7 @@ PlatformTransactionManager，AbstractPlatformTransactionManager 及具体实现�
 
 ##### 图 2. TransactionManager 类结构
 
-![TransactionManager 类结构](../img/in-post/post-incloud/TransactionManager 类结构.jpg)
+![TransactionManager 类结构](/img/in-post/post-incloud/TransactionManager 类结构.jpg)
 
 ## 注解方式的事务使用注意事项
 
@@ -149,4 +148,3 @@ insertOrder 尽管有@Transactional 注解，但它被内部方法 insert 调用
 - [Spring in Action 英文第四版](https://www.manning.com/books/spring-in-action-fourth-edition)：深入的介绍了 Spring 背后的原理,引领读者全面的理解 Spring 的框架。
 - 您可以通过 developerWorks 社区与[刘万振](https://www.ibm.com/developerworks/mydeveloperworks/profiles/user/fisher_liu)进行交流。
 - [透彻的掌握 Spring 中@transactional 的使用](https://www.ibm.com/developerworks/cn/java/j-master-spring-transactional-use/index.html)
-
