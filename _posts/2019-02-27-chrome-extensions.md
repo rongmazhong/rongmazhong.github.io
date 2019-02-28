@@ -135,6 +135,9 @@ tags:
 ![后端接受到请求，而且数据也有](/img/in-post/post-incloud/2019-02-27_175428.png)
 
 虽然这个插件很水，也没有去上传到chrome插件库，将就自己先用，慢慢完善喽。
+[GitHub地址](https://github.com/rongmazhong/upload_my_chrome_history)
+
+部分代码来自Chrome插件库。
 
 撒花*★,°*:.☆(￣▽￣)/$:*.°★* 。
 
